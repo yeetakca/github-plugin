@@ -73,7 +73,7 @@ public class DefaultPushGHEventSubscriber extends GHEventsSubscriber {
             LOGGER.warn("Received malformed PushEvent: " + event.getPayload(), e);
             return;
         }
-        URL repoUrl = push.getRepository().getUrl();
+        URL repoUrl = push.getRepository().getHtmlUrl();
         final String pusherName = push.getPusher().getName();
         LOGGER.info("Received PushEvent for {} from {}", repoUrl, event.getOrigin());
         GitHubRepositoryName fromEventRepository = GitHubRepositoryName.create(repoUrl.toExternalForm());
